@@ -5,16 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Daddy</title>
+    
+    <meta name="google-signin-client_id" content="gapi.auth2.GoogleAuth.then()">
+    <title>GoDaddy</title>
     <link rel='icon' type='image/x-icon' href="https://github.com/VaibhavPathak98915/VaibhavPathak98915.github.io/blob/0ee6355396d00226ef29efa8d49c7f2c63deced7/buriburizaemon.png">
 </head>
 
 <body bgcolor=#d400ff>
-
-    {% block content %}
     <c><h1>Hello<br>How do you do?</h1></c>
-    {% endblock %}
-
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <a href="#" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 
 </body>
 
